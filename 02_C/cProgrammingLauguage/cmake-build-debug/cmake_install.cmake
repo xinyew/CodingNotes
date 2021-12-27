@@ -1,4 +1,4 @@
-# Install script for directory: /Users/xinye/Documents/OneDrive/学习/Winter_21/15513/03_labs/testLab
+# Install script for directory: /Users/xinye/Documents/OneDrive/学习/Winter_21/CodingNotes/02_C/cProgrammingLauguage
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/xinye/Documents/OneDrive/学习/Winter_21/15513/03_labs/testLab/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/xinye/Documents/OneDrive/学习/Winter_21/CodingNotes/02_C/cProgrammingLauguage/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

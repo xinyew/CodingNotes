@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/xinye/Documents/OneDrive/学习/Winter_21/15513/03_labs/testLab/cmake-build-debug",
-		"source" : "/Users/xinye/Documents/OneDrive/学习/Winter_21/15513/03_labs/testLab"
+		"build" : "/Users/xinye/Documents/OneDrive/学习/Winter_21/CodingNotes/02_C/cProgrammingLauguage/cmake-build-debug",
+		"source" : "/Users/xinye/Documents/OneDrive/学习/Winter_21/CodingNotes/02_C/cProgrammingLauguage"
 	},
 	"version" : 
 	{
