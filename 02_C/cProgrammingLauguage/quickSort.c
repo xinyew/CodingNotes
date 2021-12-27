@@ -105,7 +105,7 @@ int readLines(char *linePtr[], int maxLines) {
     return nLines;
 }
 
-void writeLines(char * linePtr[], int nLines) {
+void writeLines(char *linePtr[], int nLines) {
     int i;
 
     for (i = 0; i < nLines; i++) {
