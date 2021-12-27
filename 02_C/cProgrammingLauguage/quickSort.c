@@ -1,18 +1,32 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define MAXLINES 5000
+#define MAXLEN 1000
+#define ALLOCSIZE 10000
+
+
 
 /*
  * A simple program to sort things by natural order or other orders.
  */
+
+/* Following are global variables*/
 char *linePtr[MAXLINES];
+static char allocbuf[ALLOCSIZE];
+static char *allocp = allocbuf;
 
-int readLines(char *linePtr[], int nLines);
+/* Following are declarations of functions */
+int getLine(char *, int);   // Read one line of input and return the number of characters
+int readLines(char *linePtr[], int nLines);     //
 void writeLines(char *linePtr[], int nLines);
-
 void qSort(void *linePtr[], int left, int right, int (*comp) (void*, void *));
 int numCmp(char *, char *);
+char *alloc(int);
+void afree(char *p);
+
+
 
 /* Sort input texts */
 int main(int argc, char * argv[]) {
@@ -32,7 +46,7 @@ int main(int argc, char * argv[]) {
     }
 }
 
-void qsort(void *v[], int left, int right, int (*comp) (void *, void *)) {
+void qSort(void *v[], int left, int right, int (*comp) (void *, void *)) {
     int i, last;
     void swap(void *v[], int, int);
 
@@ -52,7 +66,7 @@ void qsort(void *v[], int left, int right, int (*comp) (void *, void *)) {
     qsort(v,last + 1, right, comp);
 }
 
-#include <stdlib.h>
+
 int numCmp(char *s1, char *s2) {
     double v1, v2;
 
@@ -74,11 +88,8 @@ void swap(void *v[], int i, int j) {
     v[j] = temp;
 }
 
-#define MAXLEN 1000
-int getLine(char *, int);
-char *alloc(int);
 
-int readLines(char * linePtr[], int maxLines) {
+int readLines(char *linePtr[], int maxLines) {
     int len, nLines;
     char *p, line[MAXLEN];
     nLines = 0;
@@ -116,10 +127,6 @@ int getLine(char s[], int lim) {
     return i;
 }
 
-#define ALLOCSIZE 10000
-
-static char allocbuf[ALLOCSIZE];
-static char *allocp = allocbuf;
 
 char *alloc(int n) {
     if (allocbuf + ALLOCSIZE - allocp >= n) {
