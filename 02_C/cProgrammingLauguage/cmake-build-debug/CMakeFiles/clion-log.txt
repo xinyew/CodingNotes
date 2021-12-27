@@ -1,4 +1,0 @@
-"/Users/xinye/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/213.6461.46/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=/Users/xinye/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/213.6461.46/CLion.app/Contents/bin/ninja/mac/ninja" -G Ninja /Users/xinye/Documents/OneDrive/学习/Winter_21/CodingNotes/02_C/cProgrammingLauguage
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/xinye/Documents/OneDrive/学习/Winter_21/CodingNotes/02_C/cProgrammingLauguage/cmake-build-debug
