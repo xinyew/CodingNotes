@@ -2,9 +2,9 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define MAXLINES 5000
-#define MAXLEN 1000
-#define ALLOCSIZE 10000
+#define MAXLINES 5000   // The limit of lines
+#define MAXLEN 1000     // The limit of length of one line
+#define ALLOCSIZE 10000 // The limit of space of storing all lines
 
 
 
@@ -33,14 +33,21 @@ void afree(char *p);    // Free space for buffer
 /* Sort input texts */
 int main(int argc, char * argv[]) {
     int nLines;
+    // Line count
     int numeric = 0;
+    // Boolean value of whether to compare strings of words or strings of values
 
     if (argc > 1 && strcmp(argv[1], "-n") == 0) {
         numeric = 1;
     }
+    // Set correct options
+
     if ((nLines = readLines(linePtr, MAXLINES)) >= 0) {
+        // Get inputs by using readLines function
         qSort((void **) linePtr, 0, nLines - 1, (int (*) (void*, void*)) (numeric ? numCmp : strcmp));
+        // Sort!
         writeLines(linePtr, nLines);
+        // Print!
         return 0;
     } else {
         printf("input too big to sort\n");
@@ -49,23 +56,39 @@ int main(int argc, char * argv[]) {
 }
 
 void qSort(void *v[], int left, int right, int (*comp) (void *, void *)) {
+    // v: the array of pointers
+    // left & right: the left and right boundary of the parts that should be sorted
+    // comp: the compare function
+
     int i, last;
+    // i: index of the element to be compared
+    // last: axis of sorting
+
     void swap(void *v[], int, int);
+    // Declaration of the swap function
 
     if (left >= right) {
         return;
-    }
-    swap(v, left, (left + right) / 2);
-    last = left;
+    } // Base case: the left is bigger than right
 
-    for (i = left + 1; i <=right; i++) {
+    swap(v, left, (left + right) / 2);
+    // Exchange the mid-element with the left most element, kind of like pseudo-random
+    last = left;
+    // Set the axis to the left (previous mid-element)
+
+    for (i = left + 1; i <= right; i++) {
+        // Loop from 1st to last element
         if ((*comp) (v[i], v[left]) < 0) {
             swap(v, ++last, i);
+            // Put all elements less than axis to the left most part
         }
     }
+
     swap(v, left, last);
+    // Put the axis element at the right location
     qSort(v, left, last-1, comp);
     qSort(v,last + 1, right, comp);
+    // Sort other parts recursively
 }
 
 

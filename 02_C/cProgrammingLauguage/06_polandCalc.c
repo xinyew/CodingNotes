@@ -4,15 +4,17 @@
 #define MAXOP 100
 #define NUMBER '0'
 
-int gettop(char[]);
-void push(double);
-double pop(void);
-int getop(char[]);
+void push(double);  // Push an element into the stack
+double pop(void);   // Pop the top element in the stack
+int getop(char[]);  // Get the first non-num character or a string of number
 
-main() {
+int main() {
     int type;
+    // type: type of the operation
     double op2;
+    // op2: tmp variable to conduct sequential operation
     char s[MAXOP];
+    // s: string to store current input (non-word character or number)
 
     while ((type = getop(s)) != EOF) {
         switch(type) {
@@ -88,27 +90,36 @@ int getch(void);
 void ungetch(int);
 
 int getop(char s[]) {
+    // s: string to store the number or non-num word
     int i, c;
 
     while ((s[0] = c = getch()) == ' ' || c == '\t') {
-        continue;
+        // Skip all blanks
+        ;
     }
     s[1] = '\0';
+    // Make sure non-num string will have a tail
     if (!isdigit(c) && c != '.') {
+        // For non-num word, just return it
         return c;
     }
+
     i = 0;
     if (isdigit(c)) {
+        // If the number starts with digits, just add digits
         while (isdigit(s[++i] = c = getch())) {
+            // If meet dot, dot will be added
             continue;
         }
     }
     if (c == '.') {
+        // If meet dot somewhere,
         while (isdigit(s[++i] = c = getch())) {
             continue;
         }
     }
     s[i] = '\0';
+    // Add tail
     if (c != EOF) {
         ungetch(c);
     }

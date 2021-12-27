@@ -5,12 +5,17 @@
 int getLine(char *line, int max);
 
 int main(int argc, char *argv[]) {
-    char line[MAXLINE];
-    long lineno = 0;
+    char line[MAXLINE]; // String to store input characters
+    long lineno = 0;    // Record current line number
     int c, except = 0, number = 0, found = 0;
+    // c: current character
+    // except: boolean switch to control which lines to be found
 
     while (--argc > 0 && (*++argv)[0] == '-') {
+        // Exclude the call of function name and find the options of this call beginning with '-'
+        // (*++argv) represents the next string stored in the argv
         while (c = *++argv[0]) {
+            // c = *++argv[0] is equal to (c = *(++argv[0])) != '\0'
             switch (c) {
                 case 'x': {
                     except = 1;
@@ -30,11 +35,15 @@ int main(int argc, char *argv[]) {
         }
     }
     if (argc != 1) {
+        // If the only left argument is not something to be found
         printf("Usage: find -x -n pattern\n");
     } else {
         while (getLine(line, MAXLINE) > 0) {
+            // Store the input in line
             lineno++;
+            // Adjust the line number accordingly
             if ((strstr(line, *argv) != NULL) != except) {
+                // Find substring in the string
                 if (number) {
                     printf("%ld:", lineno);
                 }
