@@ -23,7 +23,7 @@ int getInt(int *pn) {
     }
 
     for (*pn = 0; isdigit(c); c = getch()) {
-        *pn = 10 * *pn + (c = '0');
+        *pn = 10 * *pn + (c - '0');
     }
     *pn *= sign;
     if (c != EOF) {
