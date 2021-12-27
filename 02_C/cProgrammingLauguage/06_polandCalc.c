@@ -127,12 +127,6 @@ int getop(char s[]) {
 }
 
 
-
-
-
-
-
-
 #define BUFSIZE 100
 
 char buf[BUFSIZE];
