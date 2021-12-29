@@ -1,10 +1,8 @@
-
-
+#include <stdio.h>
 int main() {
-    union u_tag {
-        int ival;
-        float fval;
-        char *sval;
-    } *u;
-    u -> ival = 10;
+   int day, year;
+
+   char monthname[20];
+   scanf("%d %s %d", &day, monthname, year);
+   printf("%d %s %d\n", day, monthname, year);
 }
