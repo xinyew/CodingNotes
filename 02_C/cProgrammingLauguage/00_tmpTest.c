@@ -22,9 +22,7 @@ int main() {
 
     p -> s.size -= 10;  /* decrease the current block size by allocated space */
     p += p -> s.size;   /* move the pointer p forward by size bytes from p */
-
     printf("22222222\n");
-
     /* this is still very confusing, why a new address can have -> s.size???*/
 
     p -> s.size = 10;   /* set the size of p to nUnits */
@@ -33,5 +31,11 @@ int main() {
     printf("%d\n", p);
     printf("44444444\n");
 
-    printf("%d\n", p -> s.size);
+    printf("44444444\n");
+    printf("pP444444\n");
+
+
+
+
+
 }
